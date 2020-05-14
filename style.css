@@ -1,0 +1,710 @@
+body{
+    margin : 0 ;
+  }
+  .section__wrapper{
+    display : flex ;
+    flex-direction: column ;
+    justify-content : center ;
+    align-items : center ;
+    width: 100% ;
+    height :100vh;
+    background : rgba(0,0,0,.1) ;
+  }
+  .content{
+    position : relative ;
+    width : 100vw ;
+    height : 100vw ;
+    padding : 0 ;
+    box-sizing : border-box ;
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    animation : move_cont 5s ease-in-out infinite ;
+  }
+  .content::before{
+    content : "" ;
+    position : absolute ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 2% ;
+    margin : 0 auto ;
+    width : 40% ;
+    height : 6% ;
+    border-radius : 50% ;
+    background : radial-gradient( ellipse farthest-side , rgba(0,0,0,.5) , rgba(0,0,0,0) ) ;
+    opacity : .4 ;
+    animation : shadow 5s ease-in-out infinite ;
+  }
+  @keyframes move_cont{
+    0%{padding-top : 0% ;
+    }
+    50%{padding-top : 10% ;
+    }
+    100%{padding-top : 0% ;
+    }
+  }
+  @keyframes shadow{
+    0%{
+      width : 30% ;
+      height : 6% ;
+      opacity : .4 ;
+    }
+    50%{
+      width : 40% ;
+      height : 7% ;
+      opacity : 1 ;
+    }
+    100%{
+      width : 30% ;
+      height : 6% ;
+      opacity : .4 ;
+    }
+  }
+  #device--iPhone,
+  #device--iPad{
+    display : none ;
+  }
+  .switch{
+    display : flex ;
+    justify-content : space-between ;
+    position : fixed ;
+    right : 16px ;
+    bottom : 16px ;
+    width : 140px ;
+    padding : 8px ;
+    box-sizing : border-box ;
+    border-radius : 16px ;
+    background : rgba(0,0,0,.9);
+  }
+  .swhitch__button--iPone,
+  .swhitch__button--iPad{
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    width : 56px ;
+    height : 56px ;
+    border-radius : 12px ;
+    font-family : sans-serif ;
+    color : #FFF ;
+    font-size : 12px ;
+    font-weight : bold ; 
+    color : #999 ;
+    background : gray ;
+    transition : .4s ;
+    cursor : pointer ;
+  }
+  #device--iPhone:checked ~ .switch .swhitch__button--iPone,
+  #device--iPad:checked ~ .switch .swhitch__button--iPad{
+    background : rgba(255,255,255,.7);
+    background : linear-gradient( 45deg ,#777 ,#777) ;
+  }
+  #device--iPhone:checked ~ .switch .swhitch__button--iPad,
+  #device--iPad:checked ~ .switch .swhitch__button--iPone{
+    color : #FFF ;
+    background : linear-gradient( 45deg ,#F61F64 ,#00C9FF) ;
+  }
+  /*-----------------------------------
+   device iPhone
+  -----------------------------------*/
+  #device--iPhone:checked ~ .device{
+    position : relative ;
+    z-index : 1 ;
+    width : 40vw ;
+    height : 76vw ;
+    border-radius : 7vw  ;
+    transform : rotateY(-20deg) rotateX(30deg);
+    background : linear-gradient( 45deg , #000  , #999) ;
+    transition : .6s ;
+  }
+  #device--iPhone:checked ~ .device::before{
+    content : "" ;
+    position : absolute ;
+    z-index : 1 ;
+    top : -1vw ;
+    right : -1.2vw ;
+    width : 13vw ;
+    height : 8vw ;
+    border-radius : 50% ;
+    transform : rotate(50deg);
+    background :#8d8d8d ;
+  }
+  #device--iPhone:checked ~ .device::after{
+    content : "" ;
+    position : absolute ;
+    z-index : 1 ;
+    bottom : 1.2vw ;
+    left : -3.3vw ;
+    width : 13vw ;
+    height : 8vw ;
+    border-radius : 50% ;
+    transform : rotate(40deg);
+    background :#000 ;
+  }
+  #device--iPhone:checked ~ .device .device__flame{
+    overflow : hidden ;
+    position : relative ;
+    z-index : 2 ;
+    top : -3vw ;
+    left : -3vw ;
+    width : 100% ;
+    height : 100% ;
+    border-radius : 6vw  ;
+    background : linear-gradient( -45deg , #111  , #888) ;
+  }
+  #device--iPhone:checked ~ .device .device__display{
+    overflow : hidden ;
+    position : relative ;
+    z-index : 2 ;
+    top : 2vw ;
+    left : 2vw ;
+    width : calc( 100% - 4vw );
+    height : calc( 100% - 4vw);
+    border-radius : 4vw ;
+  }
+  #device--iPhone:checked ~ .device .device__display::after{
+    content : "" ;
+    position : absolute ;
+    z-index : 3 ;
+    bottom : 16vw ;
+    left :22vw ;
+    width : 100% ;
+    height : 100% ;
+    transform : rotate(-30deg);
+    background : rgba(255,255,255,.1) ;
+  }
+  #device--iPhone:checked ~ .device .device__display::before{
+    content : "" ;
+    position : absolute ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 2vw ;
+    margin : 0 auto ;
+    width : 60% ;
+    height : 1vw ;
+    border-radius : 4vw ;
+    background : #fff ;
+  }
+  /*-----------------------------------
+   device iPad
+  -----------------------------------*/
+  #device--iPad:checked ~ .device{
+    transform : rotateY(-200deg) rotateX(210deg);
+    position : relative ;
+    width : 50vw ;
+    height : 78vw ;
+    max-width : 480px ;
+    max-width : 820px ;
+    border-radius : 5vw  ;
+    background : linear-gradient( -45deg , #ccc  , #888) ;
+    transition : .6s ;
+  }
+  #device--iPad:checked ~ .device::before{
+    content : "" ;
+    position : absolute ;
+    z-index : -1 ;
+    top : 1.1vw ;
+    left : -3.6vw ;
+    width : 12vw ;
+    height : 9vw ;
+    border-radius : 50% ;
+    transform : rotate(-50deg);
+    background :#8d8d8d ;
+  }
+  #device--iPad:checked ~ .device::after{
+    content : "" ;
+    position : absolute ;
+    z-index : -1 ;
+    bottom : -2vw ;
+    right : -.6vw ;
+    width : 12vw ;
+    height : 8vw ;
+    border-radius : 50% ;
+    transform : rotate(-40deg);
+    background :#ccc ;
+  }
+  #device--iPad:checked ~ .device .device__flame{
+    overflow : hidden ;
+    position : relative ;
+    top : 3vw ;
+    right : 3vw ;
+    width : 100% ;
+    height : 100% ;
+    border-radius : 4vw  ;
+    background : linear-gradient( -45deg , #888 , #111) ;
+  }
+  #device--iPad:checked ~ .device .device__display{
+    overflow : hidden ;
+    position : relative ;
+    z-index : 3;
+    top : 2vw ;
+    left : 2vw ;
+    width : calc( 100% - 4vw );
+    height : calc( 100% - 4vw);
+    border-radius : 3vw ;
+  }
+  #device--iPad:checked ~ .device .device__display::after{
+    content : "" ;
+    position : absolute ;
+    top : 24vw ;
+    right :22vw ;
+    width : 100% ;
+    height : 100% ;
+    transform : rotate(-36deg);
+    background : rgba(255,255,255,.1) ;
+  }
+  /*-----------------------------------
+   device time
+  -----------------------------------*/
+  .device__time{
+    position : absolute ;
+    top : 1vw ;
+    left : 1.5vw;
+    font-size : 1.5vw ;
+    font-family : sans-serif ;
+    color : #FFF ;
+  }
+  /*-----------------------------------
+   device view
+  -----------------------------------*/
+  .view{
+    position : relative ;
+    z-index : -1 ;
+    width : 100% ;
+    height : 100% ;
+    padding : 1vw 0 0 0 ;
+    box-sizing : border-box ;
+    background : radial-gradient( circle at top right,#F61F64 ,#00C9FF)  ;
+  }
+  .view__dock{
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    width : 90% ;
+    height : 12% ;
+    list-style : none ;
+    margin : 0 auto ;
+    padding : 0 ;
+    border-radius : 2vw ;
+    background : rgba(0,0,0,.3) ;
+  }
+  .view__dockIcon{
+    position :relative ;
+    width : 7vw ;
+    height : 7vw ;
+    margin : 0 .5vw ;
+    border-radius : 2vw ;
+    background : blue ;
+  }
+  #device--iPhone:checked ~ .device .view__dock{
+    margin : 8vw auto 0 ;
+    background : transparent ;
+    justify-content : flex-start ;
+    flex-wrap : wrap ;
+  }
+  #device--iPhone:checked ~ .device .view__dock:not(:first-child){
+    margin : .7vw auto ;
+  }
+  #device--iPhone:checked ~ .device .view__dockIcon{
+    margin : 0 .7vw 3vw .7vw ;
+    width : 6.6vw ;
+    height : 6.6vw ;
+    border-radius : 1.8vw ;
+  }
+  #device--iPhone:checked ~ .device .view__dockIcon:nth-child(4n){
+    margin : 0 0 3vw .7vw ;
+  }
+  #device--iPad:checked ~ .device .view__dock:not(:first-child){
+    position : absolute ;
+    bottom : 5vw ;
+    left : 0 ;
+    right : 0 ;
+    margin : 0 auto ;
+    transform:  rotate( 180deg );
+    justify-content : flex-start ;
+    flex-wrap : wrap ;
+    width : 96% ;
+    background : transparent ;
+  }
+  #device--iPad:checked ~ .device .view__dock:first-child{
+    transform : rotate(180deg);
+  }
+  #device--iPad:checked ~ .device .view__dock:not(:first-child) .view__dockIcon{
+    margin : 0 2.2vw 3vw 0 ;
+    border-radius : 1.8vw ;
+  }
+  #device--iPad:checked ~ .device .view__dock:not(:first-child) .view__dockIcon:nth-child(5n){
+    margin : 0 0 3vw 0 ;
+  }
+  #device--iPad:checked ~ .device .device__time{
+    transform : rotate(180deg);
+    top : auto ;
+    left : auto ;
+    right : 2vw ;
+    bottom : 2vw ;
+  }
+  /*-----------------------------------
+   app icon safari
+  -----------------------------------*/
+  .icon--safari{
+    position : relative ;
+    background : #FFF ;
+  }
+  .icon--safari::before,
+  .icon--safari::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    border-radius : 50% ;
+  }
+  .icon--safari::before{
+    width : 90% ;
+    height :90% ;
+    background : linear-gradient( 0deg ,#095FB9 , #27B3ED ) ;
+  }
+  .icon--safari::after{
+    width : 75% ;
+    height : 75% ;
+    border : dotted .2vw #fff ;
+  }
+  .icon--safari .icon--parts1{
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    width : 80% ;
+    height : 1vw ;
+    transform : rotate(-45deg);
+  }
+  .icon--safari .icon--parts1::before,
+  .icon--safari .icon--parts1::after{
+    content : "" ;
+    width : 0 ;
+    height : 0 ;
+    position : absolute ;
+    top : 0 ;
+    bottom : 0 ;
+    
+    margin : auto 0 ;
+  }
+  .icon--safari .icon--parts1::before{
+    border-top : solid .5vw transparent ;
+    border-left : solid 2.7vw red ;
+    border-right : 0 transparent ;
+    border-bottom : solid .5vw transparent ;
+    right : 0 ;
+  }
+  .icon--safari .icon--parts1::after{
+    border-top : solid .5vw transparent ;
+    border-left : 0 transparent ;
+    border-right : solid 2.7vw #fff ;
+    border-bottom : solid .5vw transparent ;
+    left : 0 ;
+  }
+  /*-----------------------------------
+   app icon setting
+  -----------------------------------*/
+  .icon--setting{
+    position : relative ;
+    background : linear-gradient( 0deg ,#888 , #ddd ) ;
+  }
+  .icon--setting::before,
+  .icon--setting::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    border-radius : 50% ;
+  }
+  .icon--setting::before{
+    width : 90% ;
+    height :90% ;
+    background : #333 ;
+  }
+  .icon--setting::after{
+    width : 75% ;
+    height : 75% ;
+    border : dotted .2vw #ccc ;
+  }
+  .icon--setting .icon--parts1{
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    border-radius : 50% ;
+    width : 75% ;
+    height : 75% ;
+    border : solid .2vw #ccc;
+    box-sizing : border-box ;
+  }
+  .icon--setting .icon--parts1::before,
+  .icon--setting .icon--parts1::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    border-radius : 50% ;
+  }
+  .icon--setting .icon--parts1::before{
+    width : 70% ;
+    height : 70% ;
+    border : dotted .2vw #ccc;
+    box-sizing : border-box ;
+  }
+  .icon--setting .icon--parts1::after{
+    width : 65% ;
+    height : 65% ;
+    border : solid .2vw #ccc;
+    box-sizing : border-box ;
+  }
+  .icon--setting .icon--parts2{
+    position : absolute ;
+    top :.9vw ;
+    left : 2.2vw ;
+    margin : 0;
+    transform-origin : left top ;
+    transform : rotate(-20deg );
+    width : .4vw ;
+    height : 40% ;
+    background : #ccc ;
+  }
+  .icon--setting .icon--parts2::before,
+  .icon--setting .icon--parts2::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ; 
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    transform-origin : center bottom ;
+    width : 100% ;
+    height : 100% ;
+  }
+  .icon--setting .icon--parts2::before{
+    transform : rotate( -110deg);
+    background : linear-gradient( 0deg , #ddd ,#999 ) ;
+  }
+  .icon--setting .icon--parts2::after{
+    transform : rotate( 110deg);
+    background : linear-gradient( 0deg  , #ddd ,#aaa) ;
+  }
+  /*-----------------------------------
+   app icon time
+  -----------------------------------*/
+  .icon--time{
+    position : relative ;
+    background : #222 ;
+  }
+  .icon--time::before,
+  .icon--time::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    border-radius : 50% ;
+  }
+  .icon--time::before{
+    width : 85% ;
+    height :85% ;
+    background : #fff ;
+  }
+  .icon--time::after{
+    width : 75% ;
+    height : 75% ;
+    border : dotted .2vw #222 ;
+  }
+  .icon--time .icon--parts1{
+    position : absolute ;
+    top : 1vw ;
+    left : 0 ;
+    right : 0 ;
+    margin : 0 auto ;
+    transform-origin : center bottom  ;
+    transform : rotate(-20deg );
+    width : .3vw ;
+    height : 40% ;
+    background : #222 ;
+  }
+  .icon--time .icon--parts1::before{
+    content : "" ;
+    position : absolute ;
+    top : .6vw ;
+    left : 0 ;
+    margin :auto;
+    transform-origin : center bottom  ;
+    transform : rotate(-40deg );
+    width : .3vw ;
+    height : 70% ;
+    background : #222 ;
+  }
+  .icon--time .icon--parts1::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    margin :auto;
+    transform-origin : center bottom ;
+    transform : rotate(-40deg );
+    width : .2vw ;
+    height : 100% ;
+    background : red ;
+    animation : time 60s infinite linear ;
+  }
+  @keyframes time {
+    0%{ 
+      transform : rotate(0deg);
+      height : 100% ;
+    }
+    100%{
+      transform : rotate(360deg);
+      height : 90% ;
+    }
+  }
+  /*-----------------------------------
+   app icon zoom
+  -----------------------------------*/
+  .icon--zoom{
+    background : linear-gradient( 0deg , #0067F7  , #1879FF);
+    perspective: 10 ;
+  }
+  .icon--zoom::before{
+    content : "" ;
+    position : absolute ;
+    z-index : 2 ;
+    top : 0 ;
+    left : 1vw ;
+    bottom : 0 ;
+    width : 3.3vw;
+    height : 2.4vw;
+    margin : auto 0 ;
+    border-radius : .2vw .6vw .2vw .6vw ;
+    background : #fff ;
+    border-right : solid .3vw #1879FF ;
+  }
+  .icon--zoom::after{
+    content : "" ;
+    position : absolute ;
+    z-index : 1 ;
+    top : 0 ;
+    right : 1vw ;
+    bottom : 0 ;
+    width : 0 ;
+    height : 0 ;
+    margin : auto 0;
+    border-top : solid 1.3vw transparent ;
+    border-left : solid 0 transparent ;
+    border-right : solid 2vw #fff ;
+    border-bottom : solid 1.3vw transparent ;
+  }
+  /*-----------------------------------
+   app icon zoom
+  -----------------------------------*/
+  .icon--line{
+    background : #00D426 ;
+    font-family : sans-serif ;
+  }
+  .icon--line::before{
+    content : "" ;
+    position : absolute ;
+    top : 1vw ;
+    left : 0 ;
+    right : 0 ;
+    margin : 0 auto ;
+    width : 80% ;
+    height : 60% ;
+    border-radius : 50% ;
+    background : #FFF ;
+  }
+  .icon--line::after{
+    content : "" ;
+    position : absolute ;
+    bottom : .9vw ;
+    left : 3vw ;
+    margin : 0 ;
+    width : 0 ;
+    height : 0 ;
+    border-top : solid 0 transparent ;
+    border-left : solid 1.4vw #fff ;
+    border-right : solid 0 transparent ;
+    border-bottom : solid 1vw transparent ;
+  }
+  .icon--line .icon--parts1{
+    position  : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    width : 4vw ;
+    height :1.8vw ;
+    padding : 0 0 1vw 0 ;
+    text-align : center ;
+    margin : auto ;
+    font-size : 1.4vw;
+    
+    font-weight :bold ;
+    color : #00D426 ;
+  }
+  .icon--line .icon--parts2{
+    position : absolute ;
+    top : -.8vw ;
+    right : -.8vw ;
+    width : 2.6vw ;
+    height : 2.6vw ;
+    line-height : 2.6vw ;
+    font-size : 1.5vw ;
+    border-radius : 50% ;
+    text-align : center ;
+    color : #fff ;
+    background : red ;
+  }
+  /*-----------------------------------
+   device youtube
+  -----------------------------------*/
+  .icon--youtube{
+    background : #FFF ;
+  }
+  .icon--youtube::before{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    width : 70% ;
+    height : 45% ;
+    border-radius : .5vw ;
+    background : red  ;
+  }
+  .icon--youtube::after{
+    content : "" ;
+    position : absolute ;
+    top : 0 ;
+    left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
+    margin : auto ;
+    width : 0 ;
+    height : 0 ;
+    border-top : solid .6vw transparent ;
+    border-left : solid 1.5vw #fff ;
+    border-right : solid 0 transparent ;
+    border-bottom : solid .6vw transparent ;
+  }
