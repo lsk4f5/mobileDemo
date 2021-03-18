@@ -1,5 +1,5 @@
 # mobileDemo
 
-iPhoneっぽいものがぷかぷか浮かんでるcssアニメーション
+iPhoneとiPadのモックを再現したcssアニメーション
 
 https://mobilemock.herokuapp.com/
